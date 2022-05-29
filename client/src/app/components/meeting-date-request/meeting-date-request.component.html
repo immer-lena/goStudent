@@ -1,0 +1,45 @@
+<div class="container request mt-5">
+  <h1>Anfrage an {{ad.user.name}} für </h1>
+  <h2>'{{ad.title}}'</h2>
+
+  <form class="mt-5" [formGroup]="meetingDateRequestForm" (ngSubmit)="submitForm()">
+    <input type="hidden" formControlName="id">
+    <div class="row">
+      <div class="col mt-3">
+        <h3>Wunschtermin</h3>
+        <select class="form-select fluid mb-5" formControlName="id" id="select-meeting-date">
+          <option>Auswählen...</option>
+          <option *ngFor="let date of open_meeting_dates" value="{{date.id}}" class="option-meeting-date">
+            {{date.date | date: 'longDate'}}, {{date.time}}
+          </option>
+        </select>
+        <div *ngIf="errors['date']" class="text-error">
+          {{errors['date']}}
+        </div>
+
+        <div class="form-check" id="checkbox-new-meeting">
+          <a (click)="toggleDatepicker()">
+            <input type="checkbox" class="form-check-input" id="new-meeting-input">
+            <label class="form-check-label" for="new-meeting-input">kein passender Termin dabei</label>
+          </a>
+        </div>
+        <div id="new-meeting" class="d-none mt-4 mb-5">
+          <h4>Neuen Termin vorschlagen</h4>
+          <input type="datetime-local" class="form-control" formControlName="date">
+        </div>
+
+      </div>
+      <div class="col mt-3">
+        <h3>Anmerkung</h3>
+        <textarea cols="30" rows="8" class="mb-5 form-control" formControlName="comment"></textarea>
+
+        <div class="d-flex justify-content-end gap-2">
+          <button class="btn btn-light" routerLink="../">Abbrechen</button>
+          <button type="submit" class="btn btn-primary" [disabled]="meetingDateRequestForm.invalid">Speichern</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</div>

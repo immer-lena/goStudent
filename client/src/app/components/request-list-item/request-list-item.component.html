@@ -1,0 +1,33 @@
+<div class="row mt-5 mb-5">
+  <div class="col">
+    <h3>{{ad.title}}</h3>
+    <div class="row">
+      <div class="col" *ngIf="request?.state=='requested'">
+        <p><b>Wunschtermin: </b>{{request?.date | date: 'longDate'}}  -
+          {{request?.time}}
+        </p>
+      </div>
+      <div class="col-md-4" *ngIf="request?.state=='suggested'">
+        <p><b>Terminvorschlag: </b>
+          {{request?.date | date : 'longDate'}} -
+          {{request?.time}}
+        </p>
+      </div>
+      <div class="col-md-5">
+        <p>Anfragende*r: {{request?.user?.name}}</p>
+        <p *ngIf="request?.comment">Anmerkung: {{request?.comment}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-3 col-sm-12 d-flex flex-column gap-3 justify-content-center">
+    <div class="row d-flex justify-content-center">
+      <button class="btn btn-light w-75" type="button" (click)="denyRequest($event)">Ablehnen</button>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <button class="btn btn-primary w-75" type="button" (click)="acceptRequest($event)">Annehmen</button>
+    </div>
+  </div>
+</div>
+
+

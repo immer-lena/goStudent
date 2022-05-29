@@ -1,0 +1,87 @@
+<nav class="navbar navbar-light bg-dark">
+  <div class="container pb-3 pt-3 mb-0">
+    <div class="row w-100">
+      <div class="col-10">
+        <a class="navbar-brand" href="#">
+          <a routerLink="/"><img src="../assets/images/Logo-light.png" width="200px" alt=""></a>
+        </a>
+      </div>
+      <div class="col-1 text-end">
+        <ul class="navbar-nav">
+          <li>
+            <a *ngIf="isLoggedIn()" class="nav-link text-white d-flex align-items-center" routerLink="ads" (click)="logout()">
+              <i class="bi-box-arrow-right"></i>
+            </a>
+            <a *ngIf="!isLoggedIn()" class="nav-link text-white d-flex align-items-center" routerLink="login">
+              <i class="bi-person-fill"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>
+
+<nav *ngIf="isLoggedIn()" class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+  <ul class="navbar-nav d-flex flex-row gap-4 w-100 justify-content-around">
+    <li class="nav-item">
+      <a class="nav-link" href="/user/{{getActiveUserId()}}/requests">
+        <i class="bi-bell"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user/{{getActiveUserId()}}">
+        <i class="bi-person"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/ads">
+        <i class="bi-house"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/user/{{getActiveUserId()}}/meetings">
+        <i class="bi-calendar-event"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!--<footer>-->
+<!--  <div class="links col d-flex gap-3 justify-content-center">-->
+<!--    <a>Impressum</a>-->
+<!--    <a>Datenschutz</a>-->
+<!--    <a>Cookie-Einstellungen</a>-->
+<!--  </div>-->
+<!--</footer>-->
+
+<!--<footer class="mt-5">-->
+<!--  <div class="container pt-5 pb-3 mb-0">-->
+<!--    <div class="row align-items-center">-->
+<!--      <div class="links col d-flex flex-column">-->
+<!--        <a>Impressum</a>-->
+<!--        <a>Datenschutz</a>-->
+<!--        <a>Cookie-Einstellungen</a>-->
+<!--      </div>-->
+<!--      <div class="col img-fluid">-->
+<!--        <img src="../assets/images/Logo-light.png" alt="">-->
+<!--      </div>-->
+<!--      <div class="col d-flex flex-column align-items-end">-->
+<!--        <p class="fw-bold text-white m-0">Kontakt:</p>-->
+<!--        <p class="text-white m-0">Softwarepark 11</p>-->
+<!--        <p class="text-white m-0">4232 Hagenberg im Mühlkreis</p>-->
+<!--        <p class="text-white m-0">Tel.: 050 80420</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;    <div class="row mt-2">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <hr>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <p class="text-white text-center fs-smaller">©Lena Leibetseder - 2022</p>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--  </div>-->
+
+<!--</footer>-->

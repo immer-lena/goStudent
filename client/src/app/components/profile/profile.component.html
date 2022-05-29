@@ -1,0 +1,44 @@
+<div class="container align-items-center user-infos mt-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-2 fit-content">
+      <img [src]="user.profile_pic" alt="Profilbild {{user.name}}" class="img-fluid circle">
+    </div>
+    <div class="col-md p-5 pb-3">
+      <div class="col d-flex align-items-center justify-content-between">
+        <h1 class="fit-content">{{user.name}}</h1>
+        <i *ngIf="user.id == getActiveUserId()" routerLink="./admin" class="bi-pencil-square text-white"></i>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><b>Ausbildung: </b>{{user.study.title}} - {{user.study.type_of_study}}</p>
+          <p><b>Semester: </b>{{user.semester}}</p>
+          <p><b>Kontakt: </b> <a href="mailto:{{user.email}}">{{user.email}}</a></p>
+        </div>
+        <div class="col">
+          <p><b><span *ngIf="isTutor == '1'">Tutor für:</span><span *ngIf="isTutor == '0'">Sucht Nachhilfe für:</span></b> <br>
+            <span *ngFor="let course of user.courses; last as l">
+          {{course.title}} <span *ngIf="!l">, </span>
+        </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <p>{{user.introduction}}</p>
+  </div>
+
+  <div class="row user-ads d-flex justify-content-between align-items-center p-3">
+    <div class="col-10">
+      <h2 class="fit-content">Anzeigen</h2>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+      <a *ngIf="user.id == getActiveUserId()" routerLink="./admin/ads"><i class="bi-plus-circle-fill fit-content"></i></a>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <a *ngFor="let ad of ads" class="col bs-ad-list-item"
+       [ad]="ad" routerLink="/ads/{{ad.id}}">
+    </a>
+  </div>
+</div>

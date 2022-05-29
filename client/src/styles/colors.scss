@@ -1,0 +1,54 @@
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../node_modules/bootstrap/scss/_utilities.scss";
+@import "variables";
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "light": $light-grey,
+  "text": white,
+  "body-bg": #2f2f2f
+);
+
+
+$card-background:#303030;
+$box-shadow: 0px 12px 35px -6px rgb(0 0 0);
+$body-bg: #2f2f2f;
+$disabled: #c7c7c7;
+
+$form-check-input-checked-bg-color: $primary !important;
+$form-check-input-checked-border-color: $primary !important;
+$form-check-input-focus-border: $primary !important;
+$form-check-input-focus-box-shadow: $focus-box-shadow !important;
+$input-btn-focus-color: $primary !important;
+$form-select-focus-border-color: $primary !important;
+$form-select-focus-box-shadow: $focus-box-shadow !important;
+$input-focus-border-color: $primary !important;
+$input-focus-box-shadow: $focus-box-shadow !important;
+
+
+@import "~bootstrap/scss/bootstrap";
+
+.toast-success{
+  background-color: $primary !important;
+}
+
+.card {
+  background-color: $card-background;
+  box-shadow: $box-shadow;
+  border: none;
+  color: $text;
+}
+
+.btn:disabled{
+  background-color: $disabled;
+  border: $disabled;
+}
+
+.bs-ad-list-item {
+  &:hover {
+    color: $text;
+  }
+}

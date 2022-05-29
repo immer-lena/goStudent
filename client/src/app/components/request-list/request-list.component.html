@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Offene Anfragen</h1>
+  <p *ngIf="requests.length == 0">Du hast keine offenen Anfragen!</p>
+  <ul class="list-group list-group-flush w-100">
+    <li class="request-list-item list-group-item bg-dark gap-3" *ngFor="let request of requests" [request]="request">
+
+    </li>
+  </ul>
+</div>
+
+

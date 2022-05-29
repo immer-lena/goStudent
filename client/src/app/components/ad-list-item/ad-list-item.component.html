@@ -1,0 +1,26 @@
+<div class="card h-100">
+  <div class="card-body">
+    <div class="card-title text-primary fw-bold fs-5">{{ad?.title}}</div>
+    <div class="card-text"><small class="text-muted">{{ad?.created_at | date:'longDate'}}</small></div>
+    <div class="card-text">
+      <p>Kurs: {{ad?.course?.title}}</p>
+      <p>Semester: {{ad?.course?.semester}}</p>
+      <p>Tutor*in: <a [routerLink]="">{{ad?.user?.name}}</a></p>
+      <hr>
+      <p *ngIf="ad!.meeting_dates!.length>0"><b>Nächste Termine: </b></p>
+      <p *ngIf="ad?.meeting_dates?.length==0"><b>Keine Termine verfügbar</b></p>
+      <ul>
+      <span *ngFor="let i of [0,1,2]">
+        <li *ngIf="open_meeting_dates[i]">
+          {{open_meeting_dates[i]?.date | date: 'longDate'}} - {{open_meeting_dates[i].time}}
+        </li>
+      </span>
+      </ul>
+    </div>
+
+    <button routerLink="/ads/{{ad?.id}}" class="btn btn-secondary">
+      Mehr erfahren
+    </button>
+  </div>
+</div>
+

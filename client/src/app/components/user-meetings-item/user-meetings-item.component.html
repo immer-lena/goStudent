@@ -1,0 +1,31 @@
+<div class="row mt-5 mb-5">
+  <div class="col">
+    <h3>{{ad.title}}</h3>
+    <div class="row">
+      <div class="col">
+        <p *ngIf="!isPast()">In <b>{{diffrenceInDays}}</b> Tagen</p>
+        <p>{{meeting?.date | date : 'longDate'}} - {{meeting?.time}}</p>
+        <div class="col-md-5">
+          <p>Teilnehme*r: {{meeting?.user?.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 col-sm-12 d-flex flex-column gap-3 justify-content-end" *ngIf="isPast() && ad.user_id == currentUser && meeting.state=='booked'">
+    <div class="row">
+      <div class="col">
+        <select class="form-select" [(ngModel)]="selectedOption">
+          <option disabled selected>Status setzen</option>
+          <option value="done">Erledigt</option>
+          <option value="calledOff">Abgesagt</option>
+        </select>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" type="button" (click)="saveState($event)">Speichern</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

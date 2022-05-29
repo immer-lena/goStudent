@@ -1,0 +1,106 @@
+@import "variables";
+@import "colors";
+@import "layout";
+@import "typography";
+
+.navigation{
+  border: 0 none !important;
+
+  img{
+    padding: 2em 0;
+  }
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+nav{
+  .nav-item:active{
+    color: $primary;
+  }
+}
+
+.masthead {
+  height: 80vh;
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.user-infos{
+  img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+
+#infoCourses{
+  &:hover{
+    &:after{
+      content: "Drücke Strg um mehrere Kurse auszuwählen";
+      background-color: white;
+      padding: 0.5rem;
+      position: absolute;
+      color: black;
+      font-size: smaller;
+      border: 1px solid black;
+      border-radius: 10px;
+      z-index: 4;
+      margin-left: -292px;
+      margin-top: 22px;
+    }
+  }
+}
+
+#numberOfFilter{
+  width: 20px;
+  height: 20px;
+  margin-left: 76px;
+  margin-bottom: 40px;
+}
+
+
+
+#toast-container{
+  margin-bottom: 2em;
+
+  .ngx-toastr{
+    box-shadow: none !important;
+
+  }
+}
+
+.ngx-pagination{
+  margin-top: 1rem;
+  .current{
+    background: $primary !important;
+  }
+
+  span{
+    color: white;
+  }
+
+  .pagination-previous, .pagination-next{
+    color: white !important;
+  }
+
+  .pagination-previous.disabled, .pagination-next.disabled{
+    color: darkgrey !important;
+  }
+
+}
+
+.error-404{
+  height: 80vh;
+
+  h1{
+    font-size: 7.25rem;
+  }
+
+  img{
+    max-width: 100%;
+  }
+}

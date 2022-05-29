@@ -1,0 +1,81 @@
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-12 text-center">
+        <h1 class="fw-light">Hagenberg Go Student</h1>
+        <p class="lead">Die beste Plattform für Nachhilfegeber und -nehmer</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container mt-5">
+  <h1>Aktuelle Anzeigen</h1>
+  <button (click)="toggleFilters()" class="btn bg-none text-white d-flex gap-3 align-items-center">
+    <i class="bi-funnel-fill fs-5 text-white"></i>Filter
+    <span *ngIf="numberOfFilter>0" class="rounded-circle bg-secondary position-absolute
+    d-flex justify-content-center align-items-center" id="numberOfFilter">{{numberOfFilter}}</span>
+  </button>
+  <div class="ad-filters row mb-5 mt-4 gap-2 d-none" id="ad-filters">
+    <div class="col-sm-12 col-md-6 d-flex align-items-end justify-content-between gap-2">
+      <div class="d-flex flex-column w-100">
+        <label>Studiengang:</label>
+        <select class="form-select" [(ngModel)]="chosenStudy" (ngModelChange)="selectChangeEventStudy()">
+          <option [disabled]="true" value="choose">Auswählen</option>
+          <option *ngFor="let study of studies" label="{{study.title}} - {{study.type_of_study}}" value="{{study.id}}">
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3 d-flex align-items-end justify-content-between gap-2" id="select-courses">
+      <div class="d-flex flex-column w-100">
+        <label>Kurs:</label>
+        <select class=" form-select" [(ngModel)]="chosenCourse" >
+          <option [disabled]="true" value="choose">Auswählen</option>
+          <option [disabled]="true" *ngIf="coursesOfStudy.length==0">Keine Kurse verfügbar</option>
+          <option *ngFor="let course of coursesOfStudy" value="{{course.id}}">{{course.title}}</option>
+        </select>
+      </div>
+    </div>
+      <div class="row d-flex align-items-end justify-content-between gap-2">
+        <div class="d-flex gap-3 col-sm-12 col-md-4">
+          <div class="form-check">
+            <input class="form-check-input offer" type="radio" name="offer" id="offer1" [checked]="userIsTutor == '0'" (click)="toggleOffer($event.target)">
+            <label class="form-check-label" for="offer1">
+              Angebote
+            </label>
+          </div>
+          <div class="form-check" >
+            <input class="form-check-input request" type="radio" name="offer" id="offer2" [checked]="userIsTutor == '1'" (click)="toggleOffer($event.target)">
+            <label class="form-check-label" for="offer2">
+              Anfragen
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-2 d-flex align-items-end justify-content-between gap-2">
+          <button (click)="clearFilter()" class="btn btn-secondary">Zurücksetzen</button>
+          <button (click)="filter()" class="btn btn-primary">Filtern</button>
+        </div>
+      </div>
+
+
+  </div>
+
+
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <a *ngFor="let ad of shownAds | paginate: {itemsPerPage:6, currentPage:p}" class="col p-3 bs-ad-list-item"
+         [ad]="ad" [routerLink]="ad.id">
+      </a>
+  </div>
+  <p *ngIf="shownAds.length==0" class="mt-5">Leider sind keine Angebot für deine Suche verfügbar!</p>
+  <pagination-controls
+    (pageChange)="p = $event"
+    previousLabel="Vorherige"
+    nextLabel="Nächste"
+    class="text-center mt-4">
+  </pagination-controls>
+
+
+</div>
+

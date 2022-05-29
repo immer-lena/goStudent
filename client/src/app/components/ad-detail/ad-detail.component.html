@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row d-flex">
+    <div class="col-10">
+      <h1 class="fs-2">{{ad.title}}</h1>
+    </div>
+    <div class="col-2 d-flex gap-3">
+    <a *ngIf="ad.user_id == currentUserId" routerLink="/user/{{currentUserId}}/admin/ads/{{ad.id}}"><i class="bi-pencil-square fit-content"></i></a>
+    <a *ngIf="ad.user_id == currentUserId" (click)="deleteAd()"><i class="bi-trash3 fit-content text-white"></i></a>
+    </div>
+  </div>
+  <div class="row">
+    <p>Erstellt am {{ad.created_at | date: 'longDate'}} von
+      <a routerLink="/user/{{ad.user.id}}">{{ad.user.name}}</a>
+    </p>
+  </div>
+
+  <hr class="text-white">
+  <div class="row mt-5">
+    <h3>Infos</h3>
+    <p>Kurs: {{ad.course.title}}</p>
+    <p>Semester: {{ad.course.semester}}</p>
+    <p>{{ad.description}}</p>
+  </div>
+  <div class="row">
+    <h3>Nächste Termine</h3>
+    <div class="col-md">
+      <div class="cards d-flex gap-3 justify-content-start flex-wrap">
+        <div class="card w-100" *ngFor="let date of open_meeting_dates;">
+          <div class="card-body gap-2 d-flex flex-column align-items-center">
+            <div class="card-text">{{date.date | date: 'EEEE'}}</div>
+            <h3 class="card-title m-0"><b>{{date.date | date: 'd'}}</b></h3>
+            <p class="card-text m-0"><b>{{date.date | date: 'MMMM'}}</b></p>
+            <div class="card-text">Uhrzeit: {{date.time}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row d-flex gap-3 justify-content-between mt-5">
+    <button class="btn btn-light fit-content color-white" routerLink="../">Zurück</button>
+    <button class="btn btn-primary fit-content" routerLink="./request" *ngIf="canSendRequest() && ad.user_id != currentUserId">Jetzt anfragen</button>
+  </div>
+
+</div>
+
+
+
+
+
+
+

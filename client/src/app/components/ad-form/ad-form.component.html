@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <h1 *ngIf="!isUpdating">Neues Angebot erstellen</h1>
+  <h1 *ngIf="isUpdating">Angebot bearbeiten</h1>
+
+  <form class="mt-5" [formGroup]="newAdForm" (ngSubmit)="submitForm()">
+    <input type="hidden" formControlName="id">
+    <div class="row p-3">
+      <div class="col p-3">
+        <div class="row m-2">
+          <label class="form-label">Titel</label>
+          <input type="text" formControlName="title" class="form-control" [placeholder]="isUpdating ? 'Test': ''">
+          <div *ngIf="errors['title']" class="text-danger">
+            {{errors['title']}}
+          </div>
+        </div>
+        <div class="row m-2">
+          <label class="form-label">Beschreibung</label>
+          <textarea formControlName="description" class="form-control"> </textarea>
+          <div *ngIf="errors['description']" class="text-danger">
+            {{errors['description']}}
+          </div>
+        </div>
+      </div>
+      <div class="col p-3">
+        <div class="row m-2">
+          <label class="form-label">Kurs</label>
+          <select formControlName="course_id" class="form-select">
+            <option *ngFor="let course of this.courses" value="{{course.id}}">{{course.title}}</option>
+          </select>
+          <div *ngIf="errors['course']" class="text-danger">
+            {{errors['course']}}
+          </div>
+        </div>
+        <div class="row m-2">
+          <label class="form-label">Termine</label>
+          <div formArrayName="meeting_dates" class="p-0 d-flex flex-column gap-3">
+            <div class="d-flex gap-3" id="{{i}}" *ngFor="let control of meeting_dates?.controls; index as i; last as l"
+                 [formGroupName]="i">
+              <input type="hidden" formControlName="id">
+              <input formControlName="date" type="date" class="form-control">
+              <input formControlName="time" type="time" class="form-control">
+              <div *ngIf="l">
+                <button (click)="addMeetingDateControl()" class="btn btn-primary" type="button">+</button>
+              </div>
+              <div *ngIf="!l && isUpdating">
+                <button (click)="deleteMeetingDate($event)" class="btn btn-secondary" type="button">-</button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="errors['meeting_dates']" class="text-danger">
+            {{errors['meeting_dates']}}
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end gap-2">
+        <button class="btn btn-light" routerLink=".." type="button">Abbrechen</button>
+        <button type="submit" class="btn btn-primary" [disabled]="newAdForm.invalid">Speichern</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+

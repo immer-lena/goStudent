@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+body{
+  font-family: 'Raleway', 'OpenSans', sans-serif !important;
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, label{
+  color: $text;
+}
+
+
+h1{
+  font-size: 2.25rem;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+  color: $text;
+
+  &:hover, &:active{
+    color: $primary;
+  }
+}
+
+i{
+  height: auto !important;
+  font-size: 1.5rem !important;
+  color: inherit;
+}
