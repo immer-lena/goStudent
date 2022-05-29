@@ -1,0 +1,141 @@
+{
+    "ad": [
+        {
+            "id": 1,
+            "title": "Biete Web Entwicklung Nachhilfe",
+            "description": "Lorem ipsum adjlkfajsldfjaldsfjadfadsf",
+            "offer": 1,
+            "user_id": 1,
+            "course_id": 1,
+            "study_id" : 1,
+            "meeting_dates": [
+                {
+                    "id": 2,
+                    "date": "2022-06-05",
+                    "time": "15:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 3,
+                    "date": "2022-06-06",
+                    "time": "16:00",
+                    "state": "open",
+                    "ad_id": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Nachhilfe Serverseitige Web Programmierung",
+            "description": "Lorem ipsum adjlkfajsldfjaldsfjadfadsf",
+            "offer": 1,
+            "user_id": 1,
+            "course_id": 2,
+            "study_id" : 1,
+            "meeting_dates": [
+                {
+                    "id": 4,
+                    "date": "2022-06-06",
+                    "time": "12:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 5,
+                    "date": "2022-06-09",
+                    "time": "13:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 6,
+                    "date": "2022-05-16",
+                    "time": "18:00",
+                    "state": "open",
+                    "ad_id": 1
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Nachhilfe Signale und Systeme",
+            "description": "Lorem ipsum adjlkfajsldfjaldsfjadfadsf",
+            "offer": 1,
+            "user_id": 5,
+            "course_id": 7,
+            "study_id" : 3,
+            "meeting_dates": [
+                {
+                    "id": 1,
+                    "date": "2022-06-01",
+                    "time": "16:00",
+                    "state": "requested",
+                    "ad_id": 1
+                },
+                {
+                    "id": 2,
+                    "date": "2022-06-10",
+                    "time": "15:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 3,
+                    "date": "2022-06-15",
+                    "time": "16:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 3,
+                    "date": "2022-06-12",
+                    "time": "18:00",
+                    "state": "requested",
+                    "ad_id": 1
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Suche Nachhilfe Webentwicklung",
+            "description": "Lorem ipsum adjlkfajsldfjaldsfjadfadsf",
+            "offer": 0,
+            "user_id": 2,
+            "study_id" : 1,
+            "course_id": 1,
+            "meeting_dates": [
+                {
+                    "id": 1,
+                    "date": "2022-06-03",
+                    "time": "16:00",
+                    "state": "requested",
+                    "ad_id": 1
+                },
+                {
+                    "id": 2,
+                    "date": "2022-06-10",
+                    "time": "15:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 3,
+                    "date": "2022-06-12",
+                    "time": "16:00",
+                    "state": "open",
+                    "ad_id": 1
+                },
+                {
+                    "id": 4,
+                    "date": "2022-06-17",
+                    "time": "18:00",
+                    "state": "requested",
+                    "ad_id": 1
+                }
+            ]
+        }
+    ]
+}
+
+

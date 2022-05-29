@@ -1,0 +1,166 @@
+{
+    "course": [
+        {
+            "id": 1,
+            "title" : "Web-Entwicklung: Architekturen und Frameworks",
+            "semester" : "6",
+            "study_id" : 1
+        },
+        {
+            "id": 2,
+            "title" : "Serverseitige Webentwicklung 2",
+            "semester" : "4",
+            "study_id" : 1
+        },
+        {
+            "id": 3,
+            "title" : "Lernpsychologie",
+            "semester" : "2",
+            "study_id" : 1
+        },
+        {
+            "id": 4,
+            "title" : "Mathematik",
+            "semester" : "3",
+            "study_id" : 2
+        },
+        {
+            "id": 5,
+            "title" : "Softwarebibliotheken",
+            "semester" : "3",
+            "study_id" : 2
+        },
+        {
+            "id": 6,
+            "title" : "Objektorientierte Programmierung",
+            "semester" : "2",
+            "study_id" : 2
+        },
+        {
+            "id": 7,
+            "title" : "Signale und Systeme",
+            "semester" : "3",
+            "study_id" : 3
+        },
+        {
+            "id": 8,
+            "title" : "Chip-Design",
+            "semester" : "4",
+            "study_id" : 3
+        },
+        {
+            "id": 9,
+            "title" : "Betriebssysteme",
+            "semester" : "3",
+            "study_id" : 3
+        },
+        {
+            "id": 10,
+            "title" : "User Exprience",
+            "semester" : "3",
+            "study_id" : 4
+        },
+        {
+            "id": 11,
+            "title" : "Data Analysis",
+            "semester" : "3",
+            "study_id" : 4
+        },
+        {
+            "id": 12,
+            "title" : "Mixed Reality",
+            "semester" : "4",
+            "study_id" : 4
+        },
+        {
+            "id": 13,
+            "title" : "Datenbanken",
+            "semester" : "4",
+            "study_id" : 5
+        },
+        {
+            "id": 14,
+            "title" : "Netzwerktechnik",
+            "semester" : "2",
+            "study_id" : 5
+        },
+        {
+            "id": 15,
+            "title" : "Business Management",
+            "semester" : "1",
+            "study_id" : 5
+        },
+        {
+            "id": 16,
+            "title" : "Post Production 1",
+            "semester" : "1",
+            "study_id" : 6
+        },
+        {
+            "id": 17,
+            "title" : "Animation 2",
+            "semester" : "3",
+            "study_id" : 6
+        },
+        {
+            "id": 18,
+            "title" : "Theory of Art",
+            "semester" : "2",
+            "study_id" : 6
+        },
+        {
+            "id": 19,
+            "title" : "Systemmodellierung",
+            "semester" : "1",
+            "study_id" : 7
+        },
+        {
+            "id": 20,
+            "title" : "Regelungstechnik",
+            "semester" : "2",
+            "study_id" : 7
+        },
+        {
+            "id": 21,
+            "title" : "Smart Systems Lab",
+            "semester" : "1",
+            "study_id" : 7
+        },
+        {
+            "id": 22,
+            "title" : "Cloud Computing",
+            "semester" : "3",
+            "study_id" : 8
+        },
+        {
+            "id": 23,
+            "title" : "Intelligente Systeme",
+            "semester" : "2",
+            "study_id" : 8
+        },
+        {
+            "id": 24,
+            "title" : "Service Engineering",
+            "semester" : "2",
+            "study_id" : 8
+        },
+        {
+            "id": 25,
+            "title" : "Social Web",
+            "semester" : "2",
+            "study_id" : 9
+        },
+        {
+            "id": 26,
+            "title" : "Leadership und Human Resources",
+            "semester" : "2",
+            "study_id" : 9
+        },
+        {
+            "id": 27,
+            "title" : "Webprojektmanagement",
+            "semester" : "1",
+            "study_id" : 9
+        }
+    ]
+}

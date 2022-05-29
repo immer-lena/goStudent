@@ -1,0 +1,26 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "name": "Max-muster",
+            "email": "max.muster@gmail.com",
+            "password": "secret",
+            "semester": "2",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "study_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Maria-muster",
+            "email": "maria.muster@gmail.com",
+            "password": "secret",
+            "semester": "6",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "study_id": 1
+        }
+    ]
+}

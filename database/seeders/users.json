@@ -1,0 +1,148 @@
+{
+    "user": [
+        {
+            "name": "Max Muster",
+            "email": "max.muster@gmail.com",
+            "password": "secret",
+            "semester": "4",
+            "graduated": 1,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "profile_pic": "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870",
+            "study_id": 9,
+            "courses": [1,2,25,26]
+        },
+        {
+            "name": "Markus Test",
+            "email": "markus.test@gmail.com",
+            "password": "secret",
+            "semester": "2",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "profile_pic": "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870",
+            "study_id": 1,
+            "courses": [1]
+        },
+        {
+            "name": "Maria Muster",
+            "email": "maria.muster@gmail.com",
+            "password": "secret",
+            "semester": "6",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "profile_pic": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870",
+            "study_id": 8,
+            "courses": [4,5,6,22,23,24]
+        },
+        {
+            "name": "Lara Test",
+            "email": "lara.test@gmail.com",
+            "password": "secret",
+            "semester": "2",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 0,
+            "profile_pic": "https://images.unsplash.com/photo-1517630800677-932d836ab680?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687",
+            "study_id": 2,
+            "courses": [4]
+        },
+        {
+            "name": "Patrick Test",
+            "email": "patrick.test@gmail.com",
+            "password": "secret",
+            "semester": "4",
+            "graduated": 1,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 1,
+            "profile_pic": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687",
+            "study_id": 7,
+            "courses": [7,8,9,19,20]
+        },
+        {
+            "name": "Martin Test",
+            "email": "martin.test@gmail.com",
+            "password": "secret",
+            "semester": "3",
+            "graduated": 0,
+            "introduction": "Lorem ipsum asfdhlsakjfla",
+            "tutor": 0,
+            "profile_pic": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687",
+            "study_id": 3,
+            "courses": [8,9]
+        },
+        {
+            "name": "Tina Test",
+            "email": "tina.test@gmail.com",
+            "password": "secret",
+            "semester": "2",
+            "graduated": 0,
+            "introduction": "Hallo ich bin Tina!",
+            "tutor": 1,
+            "profile_pic": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+            "study_id": 4,
+            "courses": [10]
+        },
+        {
+            "name": "Benjamin Test",
+            "email": "benji.test@gmail.com",
+            "password": "secret",
+            "semester": "2",
+            "graduated": 0,
+            "introduction": "Hallo brauch dringend Nachhilfe in User Experience :)",
+            "tutor": 0,
+            "profile_pic": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Andrew_Helwer_Profile_Photo_2022.jpg",
+            "study_id": 4,
+            "courses": [10]
+        },
+        {
+            "name": "Franz Test",
+            "email": "franz.test@gmail.com",
+            "password": "secret",
+            "semester": "6",
+            "graduated": 0,
+            "introduction": "Hallo studiere MTD im 6. Semster meldet euch gern wenn ihr Hilfe braucht :)",
+            "tutor": 1,
+            "profile_pic": "https://cdn.pixabay.com/photo/2020/03/30/17/32/steam-4984940_1280.jpg",
+            "study_id": 5,
+            "courses": [13,14]
+        },
+        {
+            "name": "Sarah Test",
+            "email": "sarah.test@gmail.com",
+            "password": "secret",
+            "semester": "5",
+            "graduated": 0,
+            "introduction": "Hallo such nach Nachhilfe für MTD 5. Semester",
+            "tutor": 0,
+            "profile_pic": "https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg",
+            "study_id": 5,
+            "courses": [14]
+        },
+        {
+            "name": "Tom Test",
+            "email": "tom.test@gmail.com",
+            "password": "secret",
+            "semester": "3",
+            "graduated": 0,
+            "introduction": "Hallo an alle!",
+            "tutor": 1,
+            "profile_pic": "https://cdn.pixabay.com/photo/2020/03/30/17/32/steam-4984940_1280.jpg",
+            "study_id": 6,
+            "courses": [16,17,18]
+        },
+        {
+            "name": "Silke Test",
+            "email": "silke.test@gmail.com",
+            "password": "secret",
+            "semester": "1",
+            "graduated": 0,
+            "introduction": "Hallo hallo :)",
+            "tutor": 0,
+            "profile_pic": "https://upload.wikimedia.org/wikipedia/en/3/31/CEO_Profile_pic_%281%29.jpg",
+            "study_id": 6,
+            "courses": [16]
+        }
+    ]
+}

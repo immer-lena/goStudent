@@ -1,0 +1,49 @@
+{
+    "study": [
+        {
+            "id": 1,
+            "title" : "Kommunikation, Wissen, Medien",
+            "type_of_study" : "Bachelor"
+        },
+        {
+            "id": 2,
+            "title" : "Software Engineering",
+            "type_of_study" : "Bachelor"
+        },
+        {
+            "id": 3,
+            "title" : "Hardware & Software -Design",
+            "type_of_study" : "Bachelor"
+        },
+        {
+            "id": 4,
+            "title" : "Medientechnik & -Design",
+            "type_of_study" : "Bachelor"
+        },
+        {
+            "id": 5,
+            "title" : "Mobile Computing",
+            "type_of_study" : "Bachelor"
+        },
+        {
+            "id": 6,
+            "title" : "Digital Arts",
+            "type_of_study" : "Master"
+        },
+        {
+            "id": 7,
+            "title" : "Embedded Systems Design",
+            "type_of_study" : "Master"
+        },
+        {
+            "id": 8,
+            "title" : "Software Engineering",
+            "type_of_study" : "Master"
+        },
+        {
+            "id": 9,
+            "title" : "Kommunikation, Wissen, Medien",
+            "type_of_study" : "Master"
+        }
+    ]
+}
