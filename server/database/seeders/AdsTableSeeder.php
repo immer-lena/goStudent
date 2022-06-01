@@ -28,6 +28,7 @@ class AdsTableSeeder extends Seeder
                 $ad->title = $result["title"];
                 $ad->description = $result["description"];
                 $ad->offer = $result["offer"];
+                $ad->active = true;
 
                 $study = Study::find($result["study_id"]);
                 $ad->study()->associate($study);

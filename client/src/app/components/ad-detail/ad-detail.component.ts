@@ -34,14 +34,10 @@ export class AdDetailComponent implements OnInit {
   ngOnInit(): void {
     const params = this.route.snapshot.params;
     this.as.getSingleAd(params['id']).subscribe(a => {
-      console.log(a);
       this.ad = a;
+      this.open_meeting_dates = this.mds.getCurrentMeetingDatesByState(this.ad.meeting_dates, "open", true);
+      this.meeting_dates = this.ad.meeting_dates;
     })
-
-    this.mds.getMeetingDatesForAd(params['id']).subscribe(md=>{
-      this.open_meeting_dates = this.mds.getCurrentMeetingDatesByState(md, "open", true);
-      this.meeting_dates = md;
-      });
   }
 
   deleteAd(){
@@ -64,11 +60,26 @@ export class AdDetailComponent implements OnInit {
   }
 
   canSendRequest(){
-    if(this.ad.offer == true && this.currentUserRole == "0")
+    if(this.ad.offer && this.currentUserRole == "0")
       return true;
-    if(this.ad.offer == false && this.currentUserRole == "1")
+    if(!this.ad.offer && this.currentUserRole == "1")
       return true;
     else return false;
+  }
+
+  toggleActive(ad:Ad){
+    if(ad.active){
+      if(window.confirm("Möchtest du diese Anzeige wirklich deaktivieren?")){
+        ad.active = false;
+        this.as.updateAd(ad).subscribe(res => console.log(res));
+      }
+    } else {
+      if(window.confirm("Möchtest du diese Anzeige wieder aktivieren?")){
+        ad.active = true;
+        this.as.updateAd(ad).subscribe(res => console.log(res));
+      }
+    }
+
   }
 
 }

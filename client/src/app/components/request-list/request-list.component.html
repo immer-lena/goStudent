@@ -1,8 +1,16 @@
 <div class="container mt-5">
-  <h1>Offene Anfragen</h1>
+  <h2>Offene Anfragen</h2>
   <p *ngIf="requests.length == 0">Du hast keine offenen Anfragen!</p>
-  <ul class="list-group list-group-flush w-100">
-    <li class="request-list-item list-group-item bg-dark gap-3" *ngFor="let request of requests" [request]="request">
+  <ul class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <li class="request-list-item col" *ngFor="let request of requests" [request]="request">
+
+    </li>
+  </ul>
+
+  <h2 class="mt-5">Gesendete Anfragen</h2>
+  <p *ngIf="sentRequests.length == 0">Du hast keine offenen gesendeten Anfragen!</p>
+  <ul class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <li class="request-list-item col" *ngFor="let request of sentRequests" [request]="request">
 
     </li>
   </ul>

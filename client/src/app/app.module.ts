@@ -32,6 +32,7 @@ import {CourseService} from "./shared/services/course.service";
 import {MeetingDateService} from "./shared/services/meeting-date.service";
 import {NgxPaginationModule} from "ngx-pagination";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 registerLocaleData(localDe);
 
@@ -51,7 +52,8 @@ registerLocaleData(localDe);
     UserMeetingsComponent,
     UserMeetingsItemComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule,

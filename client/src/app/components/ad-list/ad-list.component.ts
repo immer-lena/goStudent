@@ -37,15 +37,12 @@ export class AdListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("offer " + this.offer);
     this.as.getAllAds().subscribe(res => {
-      console.log(res);
       this.ads = res;
       this.shownAds = res;
     });
 
     this.ss.getAllStudies().subscribe(res => {
-      console.log(res);
       this.studies = res;
     })
 
@@ -54,7 +51,6 @@ export class AdListComponent implements OnInit {
   selectChangeEventStudy() {
     this.coursesOfStudy = [];
     this.cs.getCoursesofStudy(Number(this.chosenStudy)).subscribe(res => {
-      console.log(res);
       this.coursesOfStudy = res;
       this.chosenCourse = "choose";
     });
@@ -83,15 +79,12 @@ export class AdListComponent implements OnInit {
     let filteredAds: Ad[] = [];
     for (let ad of this.ads) {
       if (Number(ad.offer) == this.offer) {
-        console.log(ad.offer + " - " + this.offer);
         if (this.chosenStudy != "choose") {
           if (String(ad.study_id) == this.chosenStudy) {
-            console.log(ad.study_id + " - " + this.chosenStudy);
             if (this.chosenCourse != "choose") {
               if (String(ad.course_id) == this.chosenCourse) {
                 filteredAds.push(ad);
                 this.numberOfFilter = 3;
-                console.log("Courses " + ad.course_id + " - " + this.chosenCourse);
               }
             } else {
               filteredAds.push(ad);

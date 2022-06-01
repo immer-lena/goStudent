@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/ads', [AdController::class, 'index']);
 Route::get('/ads/{ad}', [AdController::class, 'find_ad_by_id']);
 Route::get('/user/{user}/ads', [AdController::class, 'find_ads_for_user']);
+Route::get('/user/{id}/ads/{state}', [AdController::class, 'find_INactive_ads_for_user']);
 Route::get('/courses/{course}/ads', [AdController::class, 'find_ads_for_course']);
 Route::get('/studies/{study}/ads', [AdController::class, 'find_ads_for_study']);
 
@@ -47,6 +48,8 @@ Route::get('/studies/{id}',[UserController::class, 'study']);
 Route::get('/meeting_dates', [AdController::class, 'meeting_dates']);
 Route::get('/meeting_dates/{meeting_date}', [AdController::class, 'get_single_meeting_date']);
 Route::get('/ads/{ad}/meeting_dates', [AdController::class, 'get_meeting_dates_of_ad']);
+Route::get('/meeting_dates/sent_requests/{id}/{state}', [AdController::class, 'get_sent_request_for_user']);
+Route::get('/meeting_dates/open_requests/{id}', [AdController::class, 'has_open_requests']);
 
 //Login
 Route::post('auth/login', [AuthController::class, 'login']);

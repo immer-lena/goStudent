@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     const params = this.route.snapshot.params;
-    console.log(params["id"]);
     if(params["id"]){
       this.isEditing= true;
       this.us.getSingleUser(params["id"]).subscribe(res=> {
@@ -66,7 +65,6 @@ export class RegisterComponent implements OnInit {
   }
 
   initRegisterForm(){
-    console.log(this.user);
     this.registerForm = this.fb.group({
       name:new FormControl(this.user.name, [Validators.required]),
       password:new FormControl(this.user.password,
@@ -86,14 +84,11 @@ export class RegisterComponent implements OnInit {
 
   async register(){
     const val = this.registerForm.value;
-    console.log(val);
-
     this.ss.getStudyById(val["study_id"]).subscribe(res=> {
       val["study"]= res;
     });
 
     let newUser= UserFactory.formObject(val);
-    console.log(newUser);
     if(newUser.profile_pic == null)
       newUser.profile_pic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
 
@@ -106,13 +101,11 @@ export class RegisterComponent implements OnInit {
 
     if(this.isEditing){
       newUser.id = this.user.id;
-      this.us.updateUser(newUser).subscribe(res=> console.log(res));
+      this.us.updateUser(newUser).subscribe();
       this.router.navigate(["../"],{relativeTo:this.route});
       this.toastr.success("Profildaten erfolgreich geändert");
     }else {
       this.us.register(newUser).subscribe(res=> {
-        console.log(newUser.courses);
-        console.log(res);
         this.router.navigate(["../login"],{relativeTo:this.route});
         this.toastr.success("Logge dich ein","Du wurdest registriert!");
       });

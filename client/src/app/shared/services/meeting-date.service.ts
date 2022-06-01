@@ -64,6 +64,20 @@ export class MeetingDateService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  getSentRequests(user_id:number, state:string):Observable<any>{
+    if(state == "all"){
+      return this.http.get(`${this.api}/meeting_dates/sent_requests/${user_id}/${state}`)
+        .pipe(retry(3)).pipe(catchError(this.errorHandler));
+    }
+    return this.http.get(`${this.api}/meeting_dates/sent_requests/${user_id}/${state}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  hasOpenRequests(user_id:number):Observable<any>{
+    return this.http.get(`${this.api}/meeting_dates/open_requests/${user_id}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error:Error | any):Observable<any>{
     return throwError(error);
   }

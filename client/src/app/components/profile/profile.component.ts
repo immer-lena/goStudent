@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
 
   user:User = UserFactory.empty();
   ads:Ad[] = [];
+  activeAds:Ad[] = [];
+  inactiveAds:Ad[] = [];
   isTutor = this.authService.userIsTutor();
 
   constructor(
@@ -30,13 +32,15 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const params = this.route.snapshot.params;
     this.us.getSingleUser(params['id']).subscribe(u => {
-      console.log(u);
       this.user = u;
     })
 
     this.as.getAdsByUser(params['id']).subscribe(a =>{
-      console.log(a);
       this.ads = a;
+      for (let ad of this.ads){
+        if(ad.active) this.activeAds.push(ad);
+        else this.inactiveAds.push(ad);
+      }
     })
 
   }
@@ -44,5 +48,6 @@ export class ProfileComponent implements OnInit {
   getActiveUserId(){
     return this.authService.getCurrentUserId();
   }
+
 
 }

@@ -33,7 +33,6 @@ export class CanNavigateToAdminGuard implements CanActivate {
         return true;
       }
       else{
-        console.log(this.authService.getCurrentUserId());
         this.toastr.error("Du kannst keine Änderungen an diesem Eintrag durchführen");
         this.router.navigate(["../"], {relativeTo: this.route});
         return false;

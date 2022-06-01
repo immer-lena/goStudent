@@ -1,11 +1,11 @@
 <div class="container mt-5">
   <h1>Deine Termine</h1>
   <p *ngIf="openMeetingDates.length == 0">Du hast keine offenen Termine!</p>
-  <ul class="list-group list-group-flush w-100">
-    <li class="user-meetings-item list-group-item bg-dark" *ngFor="let meeting of openMeetingDates" [meeting]="meeting">
+  <div class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="user-meetings-item" *ngFor="let meeting of openMeetingDates" [meeting]="meeting">
 
-    </li>
-  </ul>
+    </div>
+  </div>
   <h2 class="mt-5">Vergangene Termine</h2>
 
   <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -17,12 +17,12 @@
       </h2>
       <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
         <div class="accordion-body">
-          <ul class="list-group list-group-flush w-100 list-group">
-            <li *ngIf="pastMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</li>
-            <li class="user-meetings-item list-group-item bg-dark" *ngFor="let meeting of pastMeetingDates" [meeting]="meeting">
+          <p *ngIf="pastMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</p>
+          <div class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="user-meetings-item" *ngFor="let meeting of pastMeetingDates" [meeting]="meeting">
 
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,12 +34,12 @@
       </h2>
       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
         <div class="accordion-body">
-          <ul class="list-group list-group-flush w-100 list-group">
-            <li *ngIf="doneMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</li>
-            <li class="user-meetings-item list-group-item bg-dark" *ngFor="let meeting of doneMeetingDates" [meeting]="meeting">
+          <p *ngIf="doneMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</p>
+          <div class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="user-meetings-item" *ngFor="let meeting of doneMeetingDates" [meeting]="meeting">
 
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,12 +51,12 @@
       </h2>
       <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
         <div class="accordion-body">
-          <ul class="list-group list-group-flush w-100 list-group">
-            <li *ngIf="calledOfMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</li>
-            <li class="user-meetings-item list-group-item bg-dark" *ngFor="let meeting of calledOfMeetingDates" [meeting]="meeting">
+          <p *ngIf="calledOfMeetingDates.length <1" class="list-group-item text-white bg-transparent">Keine Einträge vorhanden</p>
+          <div class="p-0 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="user-meetings-item col p-3" *ngFor="let meeting of calledOfMeetingDates" [meeting]="meeting">
 
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

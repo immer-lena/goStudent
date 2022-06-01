@@ -42,12 +42,9 @@ export class MeetingDateRequestComponent implements OnInit {
     const params = this.route.snapshot.params;
     this.as.getSingleAd(params['id']).subscribe(a => {
       this.ad = a;
+      this.open_meeting_dates= this.mds.getCurrentMeetingDatesByState(this.ad.meeting_dates, "open", true);
+      this.meeting_dates = this.ad.meeting_dates;
     })
-
-    this.mds.getMeetingDatesForAd(params['id']).subscribe(md => {
-      this.open_meeting_dates= this.mds.getCurrentMeetingDatesByState(md, "open", true);
-      this.meeting_dates = md;
-    });
     this.initMeetingDate();
   }
 
@@ -78,21 +75,17 @@ export class MeetingDateRequestComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.meetingDateRequestForm.value);
     let values = this.meetingDateRequestForm.value;
     let new_meeting_date = DateFactory.empty();
 
     this.mds.getSingleMeetingDate(this.meetingDateRequestForm.value['id']).subscribe(res_date => {
       new_meeting_date = res_date;
-      console.log(new_meeting_date);
 
       if (new_meeting_date) {       //update Meeting-date
         new_meeting_date.state = "requested";
         new_meeting_date.comment = values["comment"];
         new_meeting_date.user_id = String(sessionStorage.getItem("user_id"));
-        console.log(new_meeting_date);
         this.mds.updateMeetingDate(new_meeting_date).subscribe(res => {
-          console.log(res);
           this.toastr.success("Deine Anfrage wurde erfolgreich versendet", "Anfrage versendet");
           this.router.navigate(["../"], {relativeTo: this.route});
         });
@@ -110,8 +103,6 @@ export class MeetingDateRequestComponent implements OnInit {
         new_meeting_date.user_id = String(sessionStorage.getItem("user_id"));
         this.us.getSingleUser(Number(new_meeting_date.user_id)).subscribe(res => new_meeting_date.user = res);
 
-
-        console.log(new_meeting_date);
         this.mds.createMeetingDate(new_meeting_date).subscribe(res => {
           this.toastr.success("Deine Anfrage wurde erfolgreich versendet", "Anfrage versendet");
           this.router.navigate(["../"], {relativeTo: this.route});

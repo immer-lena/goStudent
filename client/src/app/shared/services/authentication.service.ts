@@ -19,7 +19,6 @@ export class AuthenticationService {
 
   private api = "http://tutoring.s1910456017.student.kwmhgb.at/api/auth"
 
-
   constructor(
     private http:HttpClient,
     private toastr: ToastrService
@@ -33,17 +32,14 @@ export class AuthenticationService {
   }
 
   public setSessionStorage(token:string){
-    console.log(jwtDecode(token));
     this.toastr.success("Du bist eingeloggt!");
     const decodedToken = jwtDecode(token) as Token;
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("user_id", decodedToken.user.id);
-    console.log(decodedToken.user.tutor);
     sessionStorage.setItem("tutor", String(decodedToken.user.tutor));
   }
 
   public getCurrentUserId(){
-    // return Number.parseInt(<string>sessionStorage.getItem('user_id'));
     return sessionStorage.getItem('user_id');
   }
 
@@ -76,7 +72,6 @@ export class AuthenticationService {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user_id');
     sessionStorage.removeItem('tutor');
-    console.log("logged out");
     this.toastr.success("Du bist ausgeloggt!");
   }
 }

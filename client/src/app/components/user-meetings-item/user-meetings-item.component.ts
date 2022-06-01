@@ -31,6 +31,7 @@ export class UserMeetingsItemComponent implements OnInit {
   ngOnInit(): void {
     this.as.getSingleAd(this.meeting.ad_id).subscribe(res=>this.ad=res);
     this.diffrenceInDays = this.getDifferenceInDays(new Date(this.meeting.date), new Date());
+    this.selectedOption = "setState";
   }
 
   saveState(event:any){

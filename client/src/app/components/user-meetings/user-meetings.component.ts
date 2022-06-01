@@ -28,16 +28,18 @@ export class UserMeetingsComponent implements OnInit {
   ngOnInit(): void {
     this.as.getAdsByUser(this.currentUserId).subscribe(a => {
       for (let ad of a) {
-        this.mds.getMeetingDatesForAd(Number(ad.id)).subscribe(md => {
-          console.log(md);
-          this.openMeetingDates = this.mds.getCurrentMeetingDatesByState(md, "booked", true);
-          this.pastMeetingDates = this.mds.getCurrentMeetingDatesByState(md, "booked", false);
-          this.doneMeetingDates = (this.mds.getCurrentMeetingDatesByState(md, "done", false));
-          this.calledOfMeetingDates = (this.mds.getCurrentMeetingDatesByState(md, "calledOf", false));
-          console.log(this.openMeetingDates);
-          console.log(this.meetings);
-        });
+        for (let date of ad.meeting_dates){
+          if(date.state != "open")
+            this.meetings.push(date);
+        }
       }
+      this.mds.getSentRequests(this.currentUserId, "all").subscribe(sB =>{
+        this.meetings.push(...sB);
+        this.openMeetingDates = this.mds.getCurrentMeetingDatesByState(this.meetings, "booked", true);
+        this.pastMeetingDates = this.mds.getCurrentMeetingDatesByState(this.meetings, "booked", false);
+        this.doneMeetingDates = (this.mds.getCurrentMeetingDatesByState(this.meetings, "done", false));
+        this.calledOfMeetingDates = (this.mds.getCurrentMeetingDatesByState(this.meetings, "calledOf", false));
+      })
     });
   }
 }

@@ -2,16 +2,28 @@
   <div class="row d-flex">
     <div class="col-10">
       <h1 class="fs-2">{{ad.title}}</h1>
+      <p>Erstellt am {{ad.created_at | date: 'longDate'}} von
+        <a routerLink="/user/{{ad.user.id}}">{{ad.user.name}}</a>
+      </p>
     </div>
     <div class="col-2 d-flex gap-3">
-    <a *ngIf="ad.user_id == currentUserId" routerLink="/user/{{currentUserId}}/admin/ads/{{ad.id}}"><i class="bi-pencil-square fit-content"></i></a>
-    <a *ngIf="ad.user_id == currentUserId" (click)="deleteAd()"><i class="bi-trash3 fit-content text-white"></i></a>
+      <a *ngIf="ad.user_id == currentUserId" routerLink="/user/{{currentUserId}}/admin/ads/{{ad.id}}"
+         data-bs-toggle="tooltip" data-bs-placement="top" title="Editieren">
+        <i class="bi-pencil-square fit-content"></i>
+      </a>
+      <a *ngIf="ad.user_id == currentUserId" (click)="deleteAd()"
+         data-bs-toggle="tooltip" data-bs-placement="top" title="Löschen">
+        <i class="bi-trash3 fit-content text-white"></i>
+      </a>
+      <a *ngIf="ad.user_id == currentUserId && ad.active" (click)="toggleActive(ad)"
+         data-bs-toggle="tooltip" data-bs-placement="top" title="Aktivieren">
+        <i class="bi-eye fit-content text-white"></i>
+      </a>
+      <a *ngIf="ad.user_id == currentUserId && !ad.active" (click)="toggleActive(ad)"
+         data-bs-toggle="tooltip" data-bs-placement="top" title="Aktivieren">
+        <i class="bi-eye fit-content text-white"></i>
+      </a>
     </div>
-  </div>
-  <div class="row">
-    <p>Erstellt am {{ad.created_at | date: 'longDate'}} von
-      <a routerLink="/user/{{ad.user.id}}">{{ad.user.name}}</a>
-    </p>
   </div>
 
   <hr class="text-white">

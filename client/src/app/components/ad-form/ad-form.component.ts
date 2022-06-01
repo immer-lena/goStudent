@@ -116,17 +116,29 @@ export class AdFormComponent implements OnInit {
       (thumbnail:{date:string})=>thumbnail.date
     )
     const ad:Ad = AdFactory.formObject(this.newAdForm.value);
-    for(let date of ad.meeting_dates){
-      date.state = "open";
-      date.ad_id = this.ad.id;
-    }
+
     if(this.isUpdating){
+
+      this.mds.getMeetingDatesForAd(Number(this.ad.id)).subscribe(res=> {
+        for(let date of ad.meeting_dates){
+          date.ad_id = this.ad.id;
+          date.state = "open";
+        }
+        for(let date of res){
+          if(date.state != "open")
+            ad.meeting_dates.push(date);
+        }
+      });
       this.as.updateAd(ad).subscribe(res=>{
         this.newAdForm.reset(ad);
         this.toastr.success("Dein Angebot wurde erfolgreich bearbeitet", "Angebot aktualisiert");
         this.router.navigate(["../../../"],{relativeTo:this.route});
       })
     }else{
+      for(let date of ad.meeting_dates){
+        date.state = "open";
+        date.ad_id = this.ad.id;
+      }
       ad.offer = Boolean(this.authService.userIsTutor());
       ad.user_id = String(this.authService.getCurrentUserId());
       this.cs.getCourseById(this.newAdForm.value["course_id"]).subscribe((course: Course) => {

@@ -30,15 +30,11 @@ export class AdService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
-  getAdsOfCourse(id:number):Observable<Array<Ad>>{
-    return this.http.get<Array<Ad>>(`${this.api}/courses/${id}/ads`)
+  getINactiveAdsByUser(id:number, state:string):Observable<Array<Ad>>{
+    return this.http.get<Ad>(`${this.api}/user/${id}/ads/${{state}}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
-
-  getAdsOfStudy(id:number):Observable<Array<Ad>>{
-    return this.http.get<Array<Ad>>(`${this.api}/studies/${id}/ads`)
-      .pipe(retry(3)).pipe(catchError(this.errorHandler));
-  }
+  
 
   createAd(ad:Ad):Observable<any>{
     return this.http.post(`${this.api}/ads`, ad)

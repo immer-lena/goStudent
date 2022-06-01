@@ -37,10 +37,19 @@ nav{
   }
 }
 
-#infoCourses{
-  &:hover{
-    &:after{
-      content: "Drücke Strg um mehrere Kurse auszuwählen";
+.marked::after{
+  content: "";
+  background: #D78900;
+  border-radius: 100%;
+  width: 10px;
+  display: inline-block;
+  height: 10px;
+  margin-bottom: 50%;
+  margin-left: -10%;
+}
+
+@mixin tooltip($content){
+      content: $content;
       background-color: white;
       padding: 0.5rem;
       position: absolute;
@@ -51,9 +60,18 @@ nav{
       z-index: 4;
       margin-left: -292px;
       margin-top: 22px;
+
+}
+
+.tooltip--courseSelect{
+  &:hover{
+    &:after{
+      @include tooltip("Drücke Strg um mehrere Kurse auszuwählen");
     }
   }
+
 }
+
 
 #numberOfFilter{
   width: 20px;
@@ -61,7 +79,6 @@ nav{
   margin-left: 76px;
   margin-bottom: 40px;
 }
-
 
 
 #toast-container{

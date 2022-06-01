@@ -18,7 +18,7 @@ use App\Models\MeetingDate;
 class AdController extends Controller
 {
     public function index(){
-        $ads = Ad::with(['user', 'course', 'meeting_dates'])->get();
+        $ads = Ad::with(['user', 'course', 'meeting_dates'])->where('active', true)->get();
         return $ads;
     }
 
@@ -92,7 +92,12 @@ class AdController extends Controller
                         $new_meeting_date = MeetingDate::firstOrNew([
                             'date'=>$meeting_date['date'],
                             'time'=>$meeting_date['time'],
-                            'state' =>$meeting_date['state']]);
+                            'state' =>$meeting_date['state'],
+                            ]);
+                        if(isset($meeting_date['comment']))
+                            $new_meeting_date->comment = $meeting_date['comment'];
+                        if(isset($meeting_date['user_id']))
+                            $new_meeting_date->user_id = $meeting_date['user_id'];
                         $ad->meeting_dates()->save($new_meeting_date);
                     }
                 }
@@ -184,6 +189,35 @@ class AdController extends Controller
         $ads = Ad::with(['course', 'user', 'meeting_dates'])->where('user_id', $id)->get();
         return $ads != null ? response()->json($ads,200) :
             response()->json(false,200);
+    }
+
+    public function find_INactive_ads_for_user($id, $state){
+        $ads = Ad::with(['course', 'user', 'meeting_dates'])->where('user_id', $id)
+            ->where('active', true)->get();
+        return $ads != null ? response()->json($ads,200) :
+            response()->json(false,200);
+    }
+
+    public function get_sent_request_for_user($id, $state){
+        if($state == "all")
+            $requests = MeetingDate::with('user')->where('user_id', $id)->get();
+        else
+            $requests = MeetingDate::with('user')->where('user_id', $id)->where('state', $state)->get();
+        return $requests != null ? response()->json($requests,200) :
+            response()->json(false,200);
+    }
+
+    public function has_open_requests($id){
+        $ads = Ad::with('meeting_dates')->where('user_id', $id)->get();
+        foreach ($ads as $ad){
+            foreach ($ad->meeting_dates as $date){
+                if($date->state == "requested" || $date->state == "suggested")
+                    return true;
+            }
+            return false;
+        }
+
+        return false;
     }
 
 

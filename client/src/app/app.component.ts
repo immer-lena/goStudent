@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {AuthenticationService} from "./shared/services/authentication.service";
+import {AdService} from "./shared/services/ad.service";
+import {MeetingDateService} from "./shared/services/meeting-date.service";
+import {MeetingDates} from "./shared/classes/meeting-dates";
 
 
 @Component({
@@ -7,10 +10,18 @@ import {AuthenticationService} from "./shared/services/authentication.service";
   templateUrl: './app.component.html',
   styles: []
 })
+
 export class AppComponent {
+
+  currentUser = this.authService.getCurrentUserId();
+  markBell = false;
+
   constructor(
-    private authService:AuthenticationService
+    private authService:AuthenticationService,
+    private as : AdService,
+    private mds : MeetingDateService
   ) {}
+
 
   isLoggedIn(){
     return this.authService.isLoggedIn();
@@ -22,5 +33,11 @@ export class AppComponent {
 
   getActiveUserId(){
     return this.authService.getCurrentUserId();
+  }
+
+  hasOpenRequests():void{
+    this.mds.hasOpenRequests(Number(this.currentUser)).subscribe(res=> {
+      this.markBell = res;
+    });
   }
 }

@@ -22,7 +22,6 @@ export class AdListItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.open_meeting_dates = this.mds.getCurrentMeetingDatesByState(this.ad.meeting_dates, "open", true);
-    console.log(this.open_meeting_dates);
   }
 
   isCurrent(meeting_date:MeetingDates){

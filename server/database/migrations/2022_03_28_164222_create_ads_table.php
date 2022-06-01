@@ -18,6 +18,7 @@ class CreateAdsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->boolean('offer');
+            $table->boolean('active');
 
             $table->foreignId('study_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

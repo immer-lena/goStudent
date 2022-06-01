@@ -13,6 +13,7 @@ import {MeetingDateService} from "../../shared/services/meeting-date.service";
 export class RequestListComponent implements OnInit {
 
   requests:MeetingDates[] = [];
+  sentRequests:MeetingDates[] = [];
   currentUserID = Number(this.authService.getCurrentUserId());
 
   constructor(
@@ -23,19 +24,20 @@ export class RequestListComponent implements OnInit {
 
   ngOnInit(): void {
     this.as.getAdsByUser(this.currentUserID).subscribe(a =>{
-      console.log(a);
       for (let ad of a){
-        this.mds.getMeetingDatesForAd(Number(ad.id)).subscribe(md=>{
-          console.log(md);
-          for(let date of md){
+          for(let date of ad.meeting_dates){
             if(date.state == "requested" || date.state=="suggested")
               this.requests.push(date);
-            console.log(this.requests);
           }
-        });
       }
     });
-    console.log(this.requests);
+    this.mds.getSentRequests(this.currentUserID, "requested").subscribe(res=>{
+      this.sentRequests = res;
+      this.mds.getSentRequests(this.currentUserID, "suggested").subscribe(sug => {
+        this.sentRequests.push(...sug);
+        this.mds.sortMeetingDates(this.sentRequests);
+      })
+    })
   }
 
 }

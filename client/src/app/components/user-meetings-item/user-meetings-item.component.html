@@ -1,31 +1,22 @@
-<div class="row mt-5 mb-5">
-  <div class="col">
-    <h3>{{ad.title}}</h3>
-    <div class="row">
-      <div class="col">
-        <p *ngIf="!isPast()">In <b>{{diffrenceInDays}}</b> Tagen</p>
-        <p>{{meeting?.date | date : 'longDate'}} - {{meeting?.time}}</p>
-        <div class="col-md-5">
-          <p>Teilnehme*r: {{meeting?.user?.name}}</p>
-        </div>
-      </div>
+<div class="card h-100">
+  <div class="card-body">
+    <div class="card-title text-primary fw-bold fs-5">{{ad?.title}}</div>
+    <div class="card-text"><small class="text-muted" *ngIf="!isPast()">In <b>{{diffrenceInDays}}</b> Tagen</small></div>
+    <div class="card-text">
+      <p>Am {{meeting?.date | date : 'longDate'}} - {{meeting?.time}}</p>
+      <p *ngIf="ad.user_id == currentUser">Teilnehme*r: {{meeting?.user?.name}}</p>
+      <p *ngIf="ad.user_id != currentUser">Tutor*in: {{ad?.user?.name}}</p>
     </div>
-  </div>
-  <div class="col-md-5 col-sm-12 d-flex flex-column gap-3 justify-content-end" *ngIf="isPast() && ad.user_id == currentUser && meeting.state=='booked'">
-    <div class="row">
-      <div class="col">
-        <select class="form-select" [(ngModel)]="selectedOption">
-          <option disabled selected>Status setzen</option>
-          <option value="done">Erledigt</option>
-          <option value="calledOff">Abgesagt</option>
-        </select>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary" type="button" (click)="saveState($event)">Speichern</button>
-      </div>
+    <div class="card-text" *ngIf="isPast() && ad.user_id == currentUser && meeting.state=='booked'">
+      <hr>
+      <select class="form-select" [(ngModel)]="selectedOption">
+        <option disabled selected value="setState">Status setzen</option>
+        <option value="done">Erledigt</option>
+        <option value="calledOff">Abgesagt</option>
+      </select>
+      <button class="btn btn-primary w-100 mt-4" type="button" (click)="saveState($event)">Speichern</button>
     </div>
   </div>
 </div>
-
 
 

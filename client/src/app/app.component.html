@@ -20,35 +20,14 @@
       </div>
     </div>
   </div>
-
 </nav>
 
 <router-outlet></router-outlet>
 
-<nav *ngIf="isLoggedIn()" class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
-  <ul class="navbar-nav d-flex flex-row gap-4 w-100 justify-content-around">
-    <li class="nav-item">
-      <a class="nav-link" href="/user/{{getActiveUserId()}}/requests">
-        <i class="bi-bell"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/user/{{getActiveUserId()}}">
-        <i class="bi-person"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/ads">
-        <i class="bi-house"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/user/{{getActiveUserId()}}/meetings">
-        <i class="bi-calendar-event"></i>
-      </a>
-    </li>
-  </ul>
+<nav *ngIf="isLoggedIn()" class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark bs-navigation">
+
 </nav>
+
 
 <!--<footer>-->
 <!--  <div class="links col d-flex gap-3 justify-content-center">-->

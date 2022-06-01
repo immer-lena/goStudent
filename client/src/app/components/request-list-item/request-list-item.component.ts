@@ -5,6 +5,7 @@ import {AdFactory} from "../../shared/factories/ad-factory";
 import {ToastrService} from "ngx-toastr";
 import {AdService} from "../../shared/services/ad.service";
 import {MeetingDateService} from "../../shared/services/meeting-date.service";
+import {AuthenticationService} from "../../shared/services/authentication.service";
 
 @Component({
   selector: 'li.request-list-item',
@@ -17,20 +18,19 @@ export class RequestListItemComponent implements OnInit {
   @Input () request: MeetingDates |undefined
 
   ad:Ad= AdFactory.empty();
+  currentUserId = this.authService.getCurrentUserId();
 
   constructor(
     private as: AdService,
     private mds:MeetingDateService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
     this.as.getSingleAd(Number(this.request?.ad_id)).subscribe(a=>{
-      console.log(a);
       this.ad= a;
     })
-    console.log(this.request);
-
   }
 
   denyRequest(event:any){
@@ -38,7 +38,6 @@ export class RequestListItemComponent implements OnInit {
       this.request.state = "open";
       this.request.user_id = "";
       this.request.user = undefined;
-      console.log(this.request);
       this.mds.updateMeetingDate(this.request).subscribe(res=>{
         event.path[4].remove();
         this.toastr.success( "Anfrage wurde abgelehnt!");
