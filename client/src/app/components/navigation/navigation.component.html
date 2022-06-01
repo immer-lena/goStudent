@@ -1,0 +1,23 @@
+
+  <ul class="navbar-nav d-flex flex-row gap-4 w-100 justify-content-around">
+    <li class="nav-item">
+      <a [ngClass]="{'marked': markBell, 'nav-link':true}" href="/user/{{currentUser}}/requests">
+        <i class="bi-bell"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user/{{currentUser}}">
+        <i class="bi-person"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/ads">
+        <i class="bi-house"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/user/{{currentUser}}/meetings">
+        <i class="bi-calendar-event"></i>
+      </a>
+    </li>
+  </ul>
